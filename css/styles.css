@@ -11,7 +11,6 @@ html {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -19,7 +18,6 @@ html {
     display: flex;
     justify-content: space-between;
     max-width: 484px;
-
     margin-top: 24px;
     margin-bottom: 24px;
     margin-right: 20px;
@@ -171,6 +169,8 @@ html {
 }
 
 .page__projects {
+    /*position: relative;*/
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,6 +233,7 @@ html {
     display: flex;
     justify-content: start;
     width: 100%;
+    cursor: pointer;
 }
 
 .description__content--eye {
@@ -455,7 +456,9 @@ html {
     justify-content: center;
     align-items: center;
 
-    display: none;
+    /*display: none;*/
+    /*position: absolute;
+    top: 200px;*/
 }
 
 .page__popup--container {
@@ -557,4 +560,5 @@ html {
     position: absolute;
     top: 2%;
     left: 93%;
+    cursor: pointer;
 }
