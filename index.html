@@ -75,73 +75,52 @@
                         <div class="projects__title--line"></div>
                     </div>
 
-                    <div class="page__projects--items">
+                    <div class="page__projects--items projects__items">
 
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
-
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
-                                </div>
-                            </div>
+                        <div class="projects__items--title-games items__title-game">
+                            <h3 class="items__title-game--title">Games</h3>
+                            <div class="items__title-game--line"></div>
                         </div>
 
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
-
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
+                        <div class="projects__items--games items__games">
+                        <!--
+                            <div class="projects__items--item">
+                                <div class="items__item--image -ibg">
+                                    <img src="images/covers-projects\Barley-Break-cover.JPG" ></img>
+                                </div>
+                                <div class="items__item--description">
+                                    <div class="item__description--content">
+                                        <img src="images/eye.png" class="description__content--eye"></img>
+                                        <div class="description__content--name-project">Name Project</div>
+                                    </div>
                                 </div>
                             </div>
+                        -->
+
+
                         </div>
 
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
+                        <div class="projects__items--title-other items__title-other">
+                            <h3 class="items__title-other--title">Others</h3>
+                            <div class="items__title-other--line"></div>
+                        </div>
 
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
+                        <div class="projects__items--others items__other">
+                        <!--
+                            <div class="projects__items--item">
+                                <img src="images/project-default-img.png" class="items__item--image -ibg"></img>
+                                <div class="items__item--description">
+                                    <div class="item__description--content">
+                                        <img src="images/eye.png" class="description__content--eye"></img>
+                                        <div class="description__content--name-project">Name Project</div>
+                                    </div>
                                 </div>
                             </div>
+                        -->
+
+
                         </div>
 
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
-
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
-
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="projects__items--item">
-                            <img src="images/project-1.png" class="items__item--image -ibg"></img>
-
-                            <div class="items__item--description">
-                                <div class="item__description--content">
-                                    <img src="images/eye.png" class="description__content--eye"></img>
-                                    <div class="description__content--name-project">Búzon correo</div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
 
@@ -234,6 +213,22 @@
                     </div>
                 </div>
             </div>
+
+            <template id="project-item">
+                <div id="" class="projects__items--item">
+                    <div class="items__item--image -ibg">
+                        <img src="images/project-default-img.png"></img>
+                    </div>
+                    <div class="items__item--description">
+                        <div class="item__description--content">
+                            <img src="images/eye.png" class="description__content--eye"></img>
+                            <div class="description__content--name-project">Name Project</div>
+                        </div>
+                    </div>
+                </div>
+
+            </template>
+
         </main>
 
         <footer class="footer">
@@ -267,40 +262,40 @@
         </footer>
 
         <div id="page-popup" class="page__popup">
-            <div class="page__popup--container -container">
-                <div class="page__popup--content popup__content">
-                    
-                    <img id="project-image" src="images/example-image.png" alt="image-project" class="popup__content--image -ibg"></img>
-                    <div class="popup__content--text content__text">
+                <div class="page__popup--container -container">
+                    <div class="page__popup--content popup__content">
+                        
+                        <img id="project-image" src="images/example-image.png" alt="image-project" class="popup__content--image -ibg"></img>
+                        <div class="popup__content--text content__text">
 
-                        <div class="content__text--title text__title">
-                            <div id="project-title" class="text__title--text">Titulo proyecto</div>
+                            <div class="content__text--title text__title">
+                                <div id="project-title" class="text__title--text">Titulo proyecto</div>
+                            </div>
+
+                            <div class="text__title--description title__description">
+                                <div id="project-description" class="title__description--text">Descripcion proyecto...</div>
+                            </div>
+
                         </div>
+                        <div class="popup__content--buttons content__buttons">
 
-                        <div class="text__title--description title__description">
-                            <div id="project-description" class="title__description--text">Descripcion proyecto...</div>
+                            <a id="git-link" href="#" class="content__buttons--button button__repository">
+                                <img src="images/GitHub.svg" class="button__repository--image"></img>
+                                <div class="button__repository--text">Repository</div>
+                            </a>
+
+                            <a id="demo-link" href="#" class="content__buttons--button button__demo">
+                                <img src="images/www.svg" class="button__demo--image"></img>
+                                <div class="button__demo--text">Demo</div>
+                            </a>
+
                         </div>
-
-                    </div>
-                    <div class="popup__content--buttons content__buttons">
-
-                        <a href="#" class="content__buttons--button button__repository">
-                            <img src="images/GitHub.svg" class="button__repository--image"></img>
-                            <div class="button__repository--text">Repository</div>
-                        </a>
-
-                        <a href="#" class="content__buttons--button button__demo">
-                            <img src="images/www.svg" class="button__demo--image"></img>
-                            <div class="button__demo--text">Demo</div>
-                        </a>
-
-                    </div>
-                    <div class="exit__button">
-                        <img id="exit-button" src="images/button-exit.svg" alt="exit-button"></img>
+                        <div class="exit__button">
+                            <img id="exit-button" src="images/button-exit-default.svg" alt="exit-button"></img>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
     </div>
 
