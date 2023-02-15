@@ -20,15 +20,15 @@ setInterval( ()=> {
 }, 700 );
 
 /*---------------List Projects---------------*/
-const LIST_PROJECTS = [];
+//const LIST_PROJECTS = [];
+
+import { PROJECTS_DATAS } from '/js/inputData.js';
 
 class Project {
-    //static idGame = 0;
-   // static idOthers = 0;
     static id = 0;
     static classOfElement = '';
 
-    constructor( PROJECT_DATA ) { //title, description, srcImage, gitLink, demolink, type
+    constructor( PROJECT_DATA ) { 
         this.title = PROJECT_DATA.title;
         this.description = PROJECT_DATA.description;
         this.src = PROJECT_DATA.src;
@@ -57,7 +57,7 @@ class Project {
         
         for ( let i = 0; i < projects.length; i++ ) {
             if ( projects[i].getAttribute( 'id' ) === '' ) {
-                projects[i].setAttribute( 'id', Project.id ); //Project.idGame
+                projects[i].setAttribute( 'id', Project.id ); 
                 projects[i].setAttribute( 'title', this.title ); 
                 projects[i].setAttribute( 'description', this.description ); 
                 projects[i].setAttribute( 'src', this.src ); 
@@ -75,11 +75,11 @@ class Project {
             }
         }
 
-        console.log( projects );
+        //console.log( projects );
         //console.log( this );
-            
     }
 }
+/*
 //Добавление Проектов
 const PROJECTS_DATAS = [
     {
@@ -115,13 +115,12 @@ const PROJECTS_DATAS = [
         type: 'game'
     }
 
-    
 ]
-
+*/
+//создаем
 for ( const PROJECT_DATA of PROJECTS_DATAS ) {
     const PROJECT = new Project( PROJECT_DATA );
 }
-//console.log( PROJECTS_DATAS[2] );
 /*----------------------------Popup------------------*/
 
 const PAGE_POPUP = document.getElementById( 'page-popup' );
@@ -154,8 +153,8 @@ function clickLinksHandler( e ) {
                 PAGE_POPUP.style.left = ( window.innerWidth - 800 ) / 2 + 'px';
 
                 //console.log( PROJECT_TITLE, PROJECT_DESCRIPTION, PROJECT_IMAGE );
-                
                 //console.log( e.target.parentNode.parentNode.parentNode );
+
                 const sourceElement = e.target.parentNode.parentNode.parentNode;
                 const POPUP_TITLE = document.getElementById( 'project-title' );
                 const POPUPT_DESCRIPTION = document.getElementById( 'project-description' );
@@ -163,7 +162,6 @@ function clickLinksHandler( e ) {
                 const POPUP_GIT_LINK = document.getElementById( 'git-link' );
                 const POPUP_DEMO_LINK = document.getElementById( 'demo-link' );
 
-                
                 POPUP_TITLE.textContent = sourceElement.getAttribute( 'title' );
                 POPUPT_DESCRIPTION.textContent = sourceElement.getAttribute( 'description' );
                 POPUP_IMAGE.src = sourceElement.getAttribute( 'src' );
@@ -171,7 +169,6 @@ function clickLinksHandler( e ) {
                 POPUP_DEMO_LINK.href = sourceElement.getAttribute( 'demoLink' );
 
                 //console.log( sourceElement.getAttribute( 'id' ) );
-
 
                 for ( const link of LINKS_TO_VIEW_PROJECT ) {
                     link.removeEventListener( 'click', clickLinksHandler, false );
