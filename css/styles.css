@@ -54,8 +54,6 @@ html {
     }
 }
 /*-----------Greetings---------------*/
-.page__greetings--container {
-}
 
 .page__greetings {
     display: flex;
@@ -121,12 +119,6 @@ html {
     color: #2CB67D;
 }
 
-.greetings__content--image {
-}
-
-.content__image {
-}
-
 @media screen and (max-width: 800px) {
     /*
     .page__greetings--container {
@@ -165,8 +157,6 @@ html {
 
 
 /*---------------Projects-----------------*/
-.page__projects--container {
-}
 
 .page__projects {
     /*position: relative;*/
@@ -389,9 +379,6 @@ html {
     
 }
 
-.page__skills--container {
-}
-
 .page__skills--title {
     display: flex;
     justify-content: center;
@@ -418,7 +405,6 @@ html {
     left: 0px;
     top: 0px;
     border-radius: 50px;
-
 }
 
 .page__skills--items {
@@ -439,7 +425,6 @@ html {
     padding: 10px 10px 10px 10px;
     height: 60px;
     width: 180px;
-
 }
 
 .items__item--content {
@@ -457,8 +442,11 @@ html {
     font-weight: 500;
     font-size: 20px;
     line-height: 115%;
-
     color: #FFFFFF;
+}
+
+span {
+    font-size: 15px;
 }
 
 @media screen and (max-width: 405px) {
@@ -473,9 +461,6 @@ html {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-}
-
-.footer__contacs--container {
 }
 
 .footer__contacs--title {
@@ -520,15 +505,6 @@ html {
     padding: 18px;
 }
 
-.links__link--telegram {
-}
-
-.links__link--github {
-}
-
-.links__link--email {
-}
-
 /*-------------popup---------------*/
 .page__popup {
     display: flex;
@@ -538,9 +514,6 @@ html {
     /*display: none;*/
     /*position: absolute;
     top: 200px;*/
-}
-
-.page__popup--container {
 }
 
 .page__popup--content {
@@ -557,6 +530,8 @@ html {
 
 .popup__content--image {
     margin-bottom: 10px;
+    max-width: 700px;
+    max-height: 300px;
 }
 
 .popup__content--text {
@@ -578,9 +553,6 @@ html {
     margin-bottom: 10px;
 }
 
-.text__title--text {
-}
-
 .text__title--description {
     display: flex;
     justify-content: start;
@@ -590,10 +562,6 @@ html {
     font-size: 20px;
     line-height: 115%;
     color: #FFFFFF;
-}
-
-.title__description--text {
-
 }
 
 .popup__content--buttons {
@@ -622,18 +590,6 @@ html {
 
 .button__repository--image {
     margin-right: 10px;
-}
-
-.button__repository--text {
-}
-
-.content__buttons--button {
-}
-
-.buttons__demo--image {
-}
-
-.buttons__demo--text {
 }
 
 .exit__button {

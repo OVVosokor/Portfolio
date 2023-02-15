@@ -1,0 +1,23 @@
+.-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+canvas{
+    position: absolute;
+    border: 1px solid black;
+}
+#myCanvas{
+    z-index: 3;
+}
+
+#myCanvas_ui{
+    z-index: 2;
+    border: none;
+}
+
+#myCanvas_bg{
+    z-index: 1;
+}

@@ -168,7 +168,7 @@ function clickLinksHandler( e ) {
                 POPUP_GIT_LINK.href = sourceElement.getAttribute( 'gitLink' );
                 POPUP_DEMO_LINK.href = sourceElement.getAttribute( 'demoLink' );
 
-                //console.log( sourceElement.getAttribute( 'id' ) );
+                console.log( sourceElement.getAttribute( 'demoLink' ) );
 
                 for ( const link of LINKS_TO_VIEW_PROJECT ) {
                     link.removeEventListener( 'click', clickLinksHandler, false );
