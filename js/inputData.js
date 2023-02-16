@@ -1,5 +1,5 @@
 //Добавление Проектов
-/*export */const PROJECTS_DATAS = [
+/*export const PROJECTS_DATAS = [
     {
         title: 'Barley-Break',
         description: 'Classic game written in pure JS on HTML 5 Canvas.', 
@@ -34,3 +34,4 @@
     }
 
 ]
+*/
