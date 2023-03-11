@@ -115,16 +115,10 @@ html {
     font-weight: 400;
     font-size: 32px;
     line-height: 118.75%;
-
     color: #2CB67D;
 }
 
 @media screen and (max-width: 800px) {
-    /*
-    .page__greetings--container {
-        margin-left: 20px;
-        margin-right: 20px;
-    }*/
     .page__greetings--content {
         transform: scale(0.8, 0.8);
     }
@@ -146,21 +140,17 @@ html {
     .page__greetings {
         margin-bottom:  80px;
     }
-    
 }
 @media screen and (max-width: 405px) {
     .page__greetings {
-        margin-bottom:  20px;
+        margin-bottom:  80px;
     }
-    
 }
 
 
 /*---------------Projects-----------------*/
 
 .page__projects {
-    /*position: relative;*/
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,7 +184,6 @@ html {
     left: 0px;
     top: 0px;
     border-radius: 50px;
-    /*margin-bottom: 10px;*/
 }
 
 .projects__items--title-games {
@@ -258,8 +247,6 @@ html {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /*flex-wrap: wrap;
-    gap: 20px;*/
 }
 
 .projects__items--games {
@@ -275,20 +262,21 @@ html {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-
 }
 
 .projects__items--item {
-    /*border-radius: 15px 15px 0px 0px;*/
-    min-width: 400px;
+    max-width: 400px;
 }
 
 .items__item--image {
-    width: 400px;
-    height: 200px;
+    max-height: 200px;
+    width: 100%;
     overflow: hidden;
     border-radius: 15px 15px 0px 0px;
+}
 
+.items__item--image img {
+    width: 100%;
 }
 
 .items__item--description {
@@ -315,59 +303,62 @@ html {
     font-weight: 400;
     font-size: 20px;
     line-height: 115%;
-
     color: #FFFFFF;
 }
 
 @media screen and (max-width: 850px) {
-    .projects__items--item {
-        transform: scale(0.95,0.95);
-    }
     .page__projects--items {
-        gap: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
 
-@media screen and (max-width: 405px) {
-    .page__projects {
-        transform: scale(0.8,0.8);
-        margin-top: -70px;
-
+@media screen and (max-width: 430px) {
+    .projects__items--item {
+        max-width: 380px;
     }
 }
 
-@media screen and (max-width: 377px) {
-    .page__projects {
-        transform: scale(0.8,0.8);
-        margin-left: -20px;
-
+@media screen and (max-width: 401px) {
+    .projects__items--item {
+        max-width: 360px;
     }
 }
-@media screen and (max-width: 377px) {
-    .page__projects {
-        transform: scale(0.8,0.8);
-        margin-left: -30px;
 
+@media screen and (max-width: 379px) {
+    .projects__items--item {
+        max-width: 340px;
     }
 }
-@media screen and (max-width: 309px) {
-    .page__projects {
-        transform: scale(0.8,0.8);
-        margin-left: -40px;
 
+@media screen and (max-width: 360px) {
+    .projects__items--item {
+        max-width: 320px;
     }
 }
-@media screen and (max-width: 293px) {
-    .page__projects {
-        transform: scale(0.8,0.8);
-        margin-left: -50px;
 
+@media screen and (max-width: 346px) {
+    .projects__items--item {
+        max-width: 300px;
     }
 }
-@media screen and (max-width: 325px) {
+
+@media screen and (max-width: 320px) {
+    .projects__items--item {
+        max-width: 280px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .projects__items--item {
+        max-width: 260px;
+    }
+    
+}
+
+@media screen and (max-width: 404px) {
     .page__projects {
-        transform: scale(0.7,0.7);
-        margin-top: -150px;
+        margin-bottom: 170px;
     }
 }
 
@@ -376,7 +367,6 @@ html {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-    
 }
 
 .page__skills--title {
@@ -453,7 +443,6 @@ span {
     .page__skills--title {
         margin-top: -140px;
     }
-    
 }
 /*--------------------Contacs---------------*/
 .footer__contacs {
@@ -469,7 +458,6 @@ span {
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
-
 }
 
 .contacs__title--title {
@@ -479,7 +467,6 @@ span {
     line-height: 117.5%;
     color: #FFFFFF;
     margin-bottom: 5px;
-
 }
 
 .contacs__title--line {
@@ -491,7 +478,6 @@ span {
     left: 0px;
     top: 0px;
     border-radius: 50px;
-
 }
 
 .footer__contacs--links {
@@ -510,10 +496,6 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /*display: none;*/
-    /*position: absolute;
-    top: 200px;*/
 }
 
 .page__popup--content {
