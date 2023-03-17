@@ -134,54 +134,73 @@ IMAGE_EXIT_BUTTON.src = 'images/button-exit-hover.svg';
 IMAGE_EXIT_BUTTON_DEFAULT.src = 'images/button-exit-default.svg';
 
 let isActivePagePopup = false;
+let windowInnerWidth = window.innerWidth;
+    //console.log( windowInnerWidth );
 
-for ( const link of LINKS_TO_VIEW_PROJECT ) {
+    for ( const link of LINKS_TO_VIEW_PROJECT ) {
     link.addEventListener( 'click', clickLinksHandler, false );
 }
 
+window.addEventListener( 'resize', resizeWindowHandler, false );
+
+function resizeWindowHandler( e ) {
+    windowInnerWidth = window.innerWidth;
+    //console.log( windowInnerWidth );
+}
+
 function clickLinksHandler( e ) {
-    
+    console.log(windowInnerWidth);
     if ( isActivePagePopup ) {
         isActivePagePopup = false;
         PAGE_POPUP.style.display = 'none';
     }else
         if ( !isActivePagePopup ) {
-                isActivePagePopup = true;
-                PAGE_POPUP.style.display = 'flex';
-                PAGE_POPUP.style.position = 'absolute';
-                PAGE_POPUP.style.top = window.scrollY + ( window.innerHeight - 550 ) / 2 + 'px';
-                PAGE_POPUP.style.left = ( window.innerWidth - 800 ) / 2 + 'px';
+            isActivePagePopup = true;
+            PAGE_POPUP.style.display = 'flex';
+            PAGE_POPUP.style.position = 'absolute';
 
-                //console.log( PROJECT_TITLE, PROJECT_DESCRIPTION, PROJECT_IMAGE );
-                //console.log( e.target.parentNode.parentNode.parentNode );
+            PAGE_POPUP.style.top = window.scrollY + ( window.innerHeight - 550 ) / 2 + 'px';
+            if ( windowInnerWidth > 1024 ) {
+               // console.log(windowInnerWidth);
 
-                const sourceElement = e.target.parentNode.parentNode.parentNode;
-                const POPUP_TITLE = document.getElementById( 'project-title' );
-                const POPUPT_DESCRIPTION = document.getElementById( 'project-description' );
-                const POPUP_IMAGE = document.getElementById( 'project-image' );
-                const POPUP_GIT_LINK = document.getElementById( 'git-link' );
-                const POPUP_DEMO_LINK = document.getElementById( 'demo-link' );
+                PAGE_POPUP.style.left = ( windowInnerWidth - 800 ) / 2 + 'px';
+            }else
+                if ( windowInnerWidth <= 1024 ) {
+                   // console.log(windowInnerWidth);
 
-                POPUP_TITLE.textContent = sourceElement.getAttribute( 'title' );
-                POPUPT_DESCRIPTION.textContent = sourceElement.getAttribute( 'description' );
-                POPUP_IMAGE.src = sourceElement.getAttribute( 'src' );
-                POPUP_GIT_LINK.href = sourceElement.getAttribute( 'gitLink' );
-                POPUP_DEMO_LINK.href = sourceElement.getAttribute( 'demoLink' );
-
-                console.log( sourceElement.getAttribute( 'demoLink' ) );
-
-                for ( const link of LINKS_TO_VIEW_PROJECT ) {
-                    link.removeEventListener( 'click', clickLinksHandler, false );
+                    PAGE_POPUP.style.left = ( windowInnerWidth - 360 ) / 2 + 'px';
                 }
 
-                EXIT_BUTTON.addEventListener( 'click', clickExitPopupHandler, false );
-                EXIT_BUTTON.addEventListener( 'mouseover', mouseoverExitPopupHandler, false );
-                EXIT_BUTTON.addEventListener( 'mouseout', mouseoverExitPopupHandler, false );
+            //console.log( PROJECT_TITLE, PROJECT_DESCRIPTION, PROJECT_IMAGE );
+            //console.log( e.target.parentNode.parentNode.parentNode );
 
-                setTimeout( () => {
-                    ELEMENT_MAIN.addEventListener( 'click', clickExitPopupHandler, false )
-                }, 500 );
+            const sourceElement = e.target.parentNode.parentNode.parentNode;
+            const POPUP_TITLE = document.getElementById( 'project-title' );
+            const POPUPT_DESCRIPTION = document.getElementById( 'project-description' );
+            const POPUP_IMAGE = document.getElementById( 'project-image' );
+            const POPUP_GIT_LINK = document.getElementById( 'git-link' );
+            const POPUP_DEMO_LINK = document.getElementById( 'demo-link' );
+
+            POPUP_TITLE.textContent = sourceElement.getAttribute( 'title' );
+            POPUPT_DESCRIPTION.textContent = sourceElement.getAttribute( 'description' );
+            POPUP_IMAGE.src = sourceElement.getAttribute( 'src' );
+            POPUP_GIT_LINK.href = sourceElement.getAttribute( 'gitLink' );
+            POPUP_DEMO_LINK.href = sourceElement.getAttribute( 'demoLink' );
+
+            //console.log( sourceElement.getAttribute( 'demoLink' ) );
+
+            for ( const link of LINKS_TO_VIEW_PROJECT ) {
+                link.removeEventListener( 'click', clickLinksHandler, false );
             }
+
+            EXIT_BUTTON.addEventListener( 'click', clickExitPopupHandler, false );
+            EXIT_BUTTON.addEventListener( 'mouseover', mouseoverExitPopupHandler, false );
+            EXIT_BUTTON.addEventListener( 'mouseout', mouseoverExitPopupHandler, false );
+
+            setTimeout( () => {
+                ELEMENT_MAIN.addEventListener( 'click', clickExitPopupHandler, false )
+            }, 500 );
+        }
     //console.log(isActivePagePopup);
 }
 
@@ -201,9 +220,8 @@ function clickExitPopupHandler() {
         link.addEventListener( 'click', clickLinksHandler, false );
     }
 
-    ELEMENT_MAIN.removeEventListener( 'click', clickExitPopupHandler, false  )
+    ELEMENT_MAIN.removeEventListener( 'click', clickExitPopupHandler, false );
 }
-
 
 if ( !isActivePagePopup ) {
     PAGE_POPUP.style.display = 'none';

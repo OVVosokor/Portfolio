@@ -564,10 +564,13 @@ span {
     color: #FFFFFF;
     background: #161B22;
     border-radius: 5px;
-    margin-right: 20px;
     height: 46px;
     width: 320px;
     
+}
+
+.content__buttons--button:first-child {
+    margin-right: 20px;
 }
 
 .button__repository--image {
@@ -579,4 +582,26 @@ span {
     top: 2%;
     left: 93%;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .page__popup--content {
+        max-width: 360px;
+        padding-top: 30px;
+    }
+    .popup__content--text {
+        margin-bottom: 36px;
+    }
+    .popup__content--buttons {
+        flex-direction: column;   
+    }
+    .popup__content--image {
+        margin-bottom: 20px;
+    }
+    .content__buttons--button:first-child {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    
+    
 }
