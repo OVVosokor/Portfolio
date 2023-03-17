@@ -566,7 +566,6 @@ span {
     border-radius: 5px;
     height: 46px;
     width: 320px;
-    
 }
 
 .content__buttons--button:first-child {
@@ -602,6 +601,8 @@ span {
         margin-right: 0px;
         margin-bottom: 10px;
     }
-    
-    
+    .exit__button {
+        top: 0%;
+        left: 90%;
+    }
 }
