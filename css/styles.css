@@ -606,3 +606,28 @@ span {
         left: 90%;
     }
 }
+@media screen and (max-width: 426px) {
+    .page__popup--content {
+        max-width: 426px;
+        padding: 40px 20px 20px 20px;
+    }
+    .popup__content--image {
+        width: 100%;
+    }
+    .content__buttons--button {
+        width: 100%;
+    }
+    .exit__button {
+        top: 2%;
+        left: 40%;
+    }
+    .exit__button::before {
+        content: '';
+        display: block;
+        background-color: white;
+        width: 80px;
+        height: 8px;
+        border-radius: 4px;
+    }
+
+}

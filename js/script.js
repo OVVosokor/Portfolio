@@ -124,14 +124,18 @@ for ( const PROJECT_DATA of PROJECTS_DATAS ) {
 /*----------------------------Popup------------------*/
 
 const PAGE_POPUP = document.getElementById( 'page-popup' );
+const PAGE_POPUP_CONTENT = document.getElementById( 'page-popup--content' );
 const LINKS_TO_VIEW_PROJECT = document.getElementsByClassName( 'item__description--content' );
 const ELEMENT_MAIN = document.getElementById( 'page' );
-const EXIT_BUTTON = document.getElementById( 'exit-button' );
+const EXIT_BUTTON_default = document.getElementById( 'exit-button--default' );
+const EXIT_BUTTON_mini = document.getElementById( 'exit-button--mini' );
 const IMAGE_EXIT_BUTTON = new Image();
 const IMAGE_EXIT_BUTTON_DEFAULT = new Image();
 
+
 IMAGE_EXIT_BUTTON.src = 'images/button-exit-hover.svg';
 IMAGE_EXIT_BUTTON_DEFAULT.src = 'images/button-exit-default.svg';
+
 
 let isActivePagePopup = false;
 let windowInnerWidth = window.innerWidth;
@@ -149,7 +153,7 @@ function resizeWindowHandler( e ) {
 }
 
 function clickLinksHandler( e ) {
-    console.log(windowInnerWidth);
+    //console.log(windowInnerWidth);
     if ( isActivePagePopup ) {
         isActivePagePopup = false;
         PAGE_POPUP.style.display = 'none';
@@ -162,14 +166,22 @@ function clickLinksHandler( e ) {
             PAGE_POPUP.style.top = window.scrollY + ( window.innerHeight - 550 ) / 2 + 'px';
             if ( windowInnerWidth > 1024 ) {
                // console.log(windowInnerWidth);
-
                 PAGE_POPUP.style.left = ( windowInnerWidth - 800 ) / 2 + 'px';
-            }else
-                if ( windowInnerWidth <= 1024 ) {
-                   // console.log(windowInnerWidth);
-
+            }else 
+                if ( windowInnerWidth > 426 &&  windowInnerWidth <= 1024 ) {
+                    //console.log(windowInnerWidth);
                     PAGE_POPUP.style.left = ( windowInnerWidth - 360 ) / 2 + 'px';
-                }
+                }else
+                    if ( windowInnerWidth <= 426 ) {
+                        //console.log(windowInnerWidth);
+                        PAGE_POPUP_CONTENT.style.width = windowInnerWidth + 'px';
+                        //console.log( PAGE_POPUP_CONTENT.style.width );
+                        PAGE_POPUP.style.left = 0 + 'px';
+                        //console.log( PAGE_POPUP.style.left );
+
+                        EXIT_BUTTON_default.style.display = 'none';
+                    }
+            
 
             //console.log( PROJECT_TITLE, PROJECT_DESCRIPTION, PROJECT_IMAGE );
             //console.log( e.target.parentNode.parentNode.parentNode );
@@ -193,9 +205,10 @@ function clickLinksHandler( e ) {
                 link.removeEventListener( 'click', clickLinksHandler, false );
             }
 
-            EXIT_BUTTON.addEventListener( 'click', clickExitPopupHandler, false );
-            EXIT_BUTTON.addEventListener( 'mouseover', mouseoverExitPopupHandler, false );
-            EXIT_BUTTON.addEventListener( 'mouseout', mouseoverExitPopupHandler, false );
+            EXIT_BUTTON_default.addEventListener( 'click', clickExitPopupHandler, false );
+            EXIT_BUTTON_default.addEventListener( 'mouseover', mouseoverExitPopupHandler, false );
+            EXIT_BUTTON_default.addEventListener( 'mouseout', mouseoverExitPopupHandler, false );
+            EXIT_BUTTON_mini.addEventListener( 'click', clickExitPopupHandler, false );
 
             setTimeout( () => {
                 ELEMENT_MAIN.addEventListener( 'click', clickExitPopupHandler, false )
@@ -206,9 +219,9 @@ function clickLinksHandler( e ) {
 
 function mouseoverExitPopupHandler( e ) {
     if ( e.type === 'mouseover' ) {
-        EXIT_BUTTON.src = IMAGE_EXIT_BUTTON.src;
+        EXIT_BUTTON_default.src = IMAGE_EXIT_BUTTON.src;
     }else{
-        EXIT_BUTTON.src = IMAGE_EXIT_BUTTON_DEFAULT.src;
+        EXIT_BUTTON_default.src = IMAGE_EXIT_BUTTON_DEFAULT.src;
     }
 }
 
