@@ -1,5 +1,4 @@
-/*---------------Salute---------------------*/
-
+//**************  Salute
 const ELEMENT_SALUTE = document.getElementById( 'salute-animation' );
 const IMAGE_1 = new Image();
 const IMAGE_2 = new Image();
@@ -18,12 +17,7 @@ setInterval( ()=> {
     ELEMENT_SALUTE.src = IMAGE[i];
     i++;
 }, 700 );
-
-/*---------------List Projects---------------*/
-//const LIST_PROJECTS = [];
-
-/*import { PROJECTS_DATAS } from '/js/inputData.js';*/
-
+//****************** class of projects
 class Project {
     static id = 0;
     static classOfElement = '';
@@ -45,14 +39,14 @@ class Project {
                 Project.classOfElement = 'projects__items--others';
             }
 
-        //клонируем шаблон
+        //*clone the template
         const TEMPLATE = document.getElementById( 'project-item' );
         const TEMPLATE_BODY_GAMES = document.getElementsByClassName( Project.classOfElement );
         const PROJECT = TEMPLATE.content.cloneNode( true );
 
         TEMPLATE_BODY_GAMES[0].appendChild(PROJECT);
 
-        //получаем добавленный элемент
+        //*get added element
         const projects = document.getElementsByClassName( 'projects__items--item' );
         
         for ( let i = 0; i < projects.length; i++ ) {
@@ -80,49 +74,7 @@ class Project {
     }
 }
 
-//Добавление Проектов
-const PROJECTS_DATAS = [
-    {
-        title: 'Barley-Break',
-        description: 'Classic game written in pure JS on HTML 5 Canvas.', 
-        src: 'images/covers-projects/Barley-Break-cover.JPG', 
-        gitLink: 'https://github.com/OVVosokor/Barley-Break',
-        demoLink: 'projects/games/Barley-Break/index.html',
-        type: 'game'
-    },
-    {
-        title: 'Four in a Row (Connect four)',
-        description: 'Four in a Row (Connect four) is a two-player connection rack game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid.', 
-        src: 'images/covers-projects/FourInRow.JPG', 
-        gitLink: 'https://github.com/OVVosokor/Connect-four',
-        demoLink: 'projects/games/FourInRow/index.html',
-        type: 'game'
-    },
-    {
-        title: 'Clock',
-        description: 'Just a clock using the HTML 5 Canvas transformation.', 
-        src: 'images/covers-projects/Clock.JPG', 
-        gitLink: 'https://github.com/OVVosokor/Clock',
-        demoLink: 'projects/others/Clock/index.html',
-        type: 'other'
-    },
-    {
-        title: 'Calculator',
-        description: 'This project written in pure JS and CSS 3.', 
-        src: 'images/covers-projects/Calculator.JPG', 
-        gitLink: 'https://github.com/OVVosokor/Calculator',
-        demoLink: 'projects/others/Calculator/project_calc/index.html',
-        type: 'other'
-    }
-
-]
-
-//создаем
-for ( const PROJECT_DATA of PROJECTS_DATAS ) {
-    const PROJECT = new Project( PROJECT_DATA );
-}
-/*----------------------------Popup------------------*/
-
+//************** Popup
 const PAGE_POPUP = document.getElementById( 'page-popup' );
 const PAGE_POPUP_CONTENT = document.getElementById( 'page-popup--content' );
 const LINKS_TO_VIEW_PROJECT = document.getElementsByClassName( 'item__description--content' );
@@ -131,21 +83,54 @@ const EXIT_BUTTON_default = document.getElementById( 'exit-button--default' );
 const EXIT_BUTTON_mini = document.getElementById( 'exit-button--mini' );
 const IMAGE_EXIT_BUTTON = new Image();
 const IMAGE_EXIT_BUTTON_DEFAULT = new Image();
-
-
 IMAGE_EXIT_BUTTON.src = 'images/button-exit-hover.svg';
 IMAGE_EXIT_BUTTON_DEFAULT.src = 'images/button-exit-default.svg';
-
-
 let isActivePagePopup = false;
 let windowInnerWidth = window.innerWidth;
-    //console.log( windowInnerWidth );
+//console.log( windowInnerWidth );
+const itemsToLoad = 3;
+let loadCount = 0;
+let requestURL = '';
+let jsonObj = {};
+let projects_datas = [];
 
-    for ( const link of LINKS_TO_VIEW_PROJECT ) {
-    link.addEventListener( 'click', clickLinksHandler, false );
+if ( !isActivePagePopup ) {
+    PAGE_POPUP.style.display = 'none';
 }
 
-window.addEventListener( 'resize', resizeWindowHandler, false );
+IMAGE_EXIT_BUTTON.addEventListener( 'load', itemLoaded, false );
+IMAGE_EXIT_BUTTON_DEFAULT.addEventListener( 'load', itemLoaded, false );
+requestURL = 'js/inputData.json';
+request = new XMLHttpRequest();
+request.open( 'GET', requestURL );
+request.responseType = 'json';
+request.send();
+request.addEventListener( 'load', itemLoaded, false );
+
+function itemLoaded() {
+    loadCount++;
+    //console.log( loadCount );
+    if ( loadCount >= itemsToLoad ) {
+        IMAGE_EXIT_BUTTON.removeEventListener( 'load', itemLoaded, false );
+        IMAGE_EXIT_BUTTON_DEFAULT.removeEventListener( 'load', itemLoaded, false );
+        request.removeEventListener( 'load', itemLoaded, false );
+        jsonObj = request.response;
+        //console.log( jsonObj );
+        //*** add projects
+        projects_datas = jsonObj.projects;
+        //console.log( projects_datas );
+        //********* start
+        //*create projects
+        for ( const PROJECT_DATA of projects_datas ) {
+            const PROJECT = new Project( PROJECT_DATA );
+        }
+        //*addEventListeners
+        for ( const link of LINKS_TO_VIEW_PROJECT ) {
+            link.addEventListener( 'click', clickLinksHandler, false );
+        }
+        window.addEventListener( 'resize', resizeWindowHandler, false );
+    }
+}
 
 function resizeWindowHandler( e ) {
     windowInnerWidth = window.innerWidth;
@@ -178,7 +163,6 @@ function clickLinksHandler( e ) {
                         //console.log( PAGE_POPUP_CONTENT.style.width );
                         PAGE_POPUP.style.left = 0 + 'px';
                         //console.log( PAGE_POPUP.style.left );
-
                         EXIT_BUTTON_default.style.display = 'none';
                     }
             
@@ -236,6 +220,3 @@ function clickExitPopupHandler() {
     ELEMENT_MAIN.removeEventListener( 'click', clickExitPopupHandler, false );
 }
 
-if ( !isActivePagePopup ) {
-    PAGE_POPUP.style.display = 'none';
-}
