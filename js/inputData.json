@@ -3,7 +3,7 @@
     [
         {
             "title": "Barley-Break",
-            "description": "Classic game written in pure JS on HTML 5 Canvas.", 
+            "description": "Classic game written in pure JavaScript on HTML 5 Canvas API.", 
             "src": "images/covers-projects/Barley-Break-cover.JPG", 
             "gitLink": "https://github.com/OVVosokor/Barley-Break",
             "demoLink": "projects/games/Barley-Break/index.html",
@@ -11,7 +11,7 @@
         },
         {
             "title": "Four in a Row (Connect four)",
-            "description": "Four in a Row (Connect four) is a two-player connection rack game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid.", 
+            "description": "Four in a Row (Connect four) is a two-player connection rack game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. Game written in pure JavaScript on HTML 5 Canvas API.", 
             "src": "images/covers-projects/FourInRow.JPG", 
             "gitLink": "https://github.com/OVVosokor/Connect-four",
             "demoLink": "projects/games/FourInRow/index.html",
@@ -27,11 +27,20 @@
         },
         {
             "title": "Calculator",
-            "description": "This project written in pure JS and CSS 3.", 
+            "description": "This project written in pure JavaScript and CSS 3.", 
             "src": "images/covers-projects/Calculator.JPG", 
             "gitLink": "https://github.com/OVVosokor/Calculator",
             "demoLink": "projects/others/Calculator/project_calc/index.html",
             "type": "other"
+        },
+        {
+            "title": "Tetris",
+            "description": "Tetris is a puzzle video game created by Soviet software engineer Alexey Pajitnov in 1984. Game written in pure JavaScript on HTML 5 Canvas API.", 
+            "src": "images/covers-projects/Tetris.JPG", 
+            "gitLink": "https://github.com/OVVosokor/Tetris",
+            "demoLink": "projects/games/Tetris/index.html",
+            "type": "game"
         }
+
     ]
 }
