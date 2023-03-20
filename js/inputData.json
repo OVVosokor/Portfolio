@@ -38,7 +38,7 @@
             "description": "Tetris is a puzzle video game created by Soviet software engineer Alexey Pajitnov in 1984. Game written in pure JavaScript on HTML 5 Canvas API.", 
             "src": "images/covers-projects/Tetris.JPG", 
             "gitLink": "https://github.com/OVVosokor/Tetris",
-            "demoLink": "projects/games/Tetris/index.html",
+            "demoLink": "https://ovvosokor.github.io/Tetris/",
             "type": "game"
         }
 
