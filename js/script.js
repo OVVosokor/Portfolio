@@ -118,7 +118,7 @@ function itemLoaded() {
         //console.log( jsonObj );
         //*** add projects
         projects_datas = jsonObj.projects;
-        //console.log( projects_datas );
+        console.log( projects_datas );
         //********* start
         //*create projects
         for ( const PROJECT_DATA of projects_datas ) {
